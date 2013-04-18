@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootWrap.UI.MVC.Test", "BootWrap.UI.MVC.Test\BootWrap.UI.MVC.Test.csproj", "{749CB675-73FA-4A0F-B386-A57CC0BD2E24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{51F232AB-092F-4774-AB62-E499AD0C450A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{BDA644EF-BF2E-406B-8BDA-333F860AB1CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wrapper", "Wrapper", "{35DAC985-57F9-4030-9193-8FCFFD0A70E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootWrap.Web.UI.Mvc", "BootWrap.Web.UI.Mvc\BootWrap.Web.UI.Mvc.csproj", "{77454B91-EAAF-45FD-AA85-A43EC051766B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{749CB675-73FA-4A0F-B386-A57CC0BD2E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749CB675-73FA-4A0F-B386-A57CC0BD2E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749CB675-73FA-4A0F-B386-A57CC0BD2E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749CB675-73FA-4A0F-B386-A57CC0BD2E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77454B91-EAAF-45FD-AA85-A43EC051766B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77454B91-EAAF-45FD-AA85-A43EC051766B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77454B91-EAAF-45FD-AA85-A43EC051766B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77454B91-EAAF-45FD-AA85-A43EC051766B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{749CB675-73FA-4A0F-B386-A57CC0BD2E24} = {51F232AB-092F-4774-AB62-E499AD0C450A}
+		{51F232AB-092F-4774-AB62-E499AD0C450A} = {BDA644EF-BF2E-406B-8BDA-333F860AB1CF}
+		{77454B91-EAAF-45FD-AA85-A43EC051766B} = {35DAC985-57F9-4030-9193-8FCFFD0A70E6}
+	EndGlobalSection
+EndGlobal
