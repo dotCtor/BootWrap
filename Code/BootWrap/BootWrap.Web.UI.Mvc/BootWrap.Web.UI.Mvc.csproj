@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="Builder\Base\BuilderBase.cs" />
     <Compile Include="Builder\Base\InputBuilderBase.cs" />
+    <Compile Include="Builder\RowBuilder.cs" />
     <Compile Include="Builder\TextBoxBuilder.cs" />
+    <Compile Include="Constants\HtmlTags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WidgetFactory.cs" />
     <Compile Include="Wrapper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,4 +3,12 @@
 }
 
 <h2>Index</h2>
-@(BootWrap.Web.UI.Mvc.Wrapper.TextBox())
+<div class="container">
+    @(Html.Bootstrap()
+    .Row()
+    .Html(@<div class="span6">
+        @(Html.Bootstrap().TextBox())
+        <br />
+        Html Ulan
+    </div>))
+</div>

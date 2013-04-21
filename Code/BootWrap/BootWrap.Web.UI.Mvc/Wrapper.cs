@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Mvc;
 using BootWrap.Web.UI.Mvc.Builder;
 
 namespace BootWrap.Web.UI.Mvc
 {
     public static class Wrapper
     {
-        public static TextBoxBuilder TextBox(string name = null)
+        public static WidgetFactory<TModel> Bootstrap<TModel>(this HtmlHelper<TModel> helper)
         {
-            return new TextBoxBuilder();
+            return new WidgetFactory<TModel>(helper.ViewData.Model);
         }
     }
 }
