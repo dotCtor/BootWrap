@@ -44,6 +44,7 @@
     <Compile Include="Builder\Base\BuilderBase.cs" />
     <Compile Include="Builder\Base\InputBuilderBase.cs" />
     <Compile Include="Builder\Base\ContainerBuilderBase.cs" />
+    <Compile Include="Builder\Block\ContainerBuilder.cs" />
     <Compile Include="Builder\Block\RowBuilder.cs" />
     <Compile Include="Builder\Block\SpanBuilder.cs" />
     <Compile Include="Builder\Form\TextBoxBuilder.cs" />

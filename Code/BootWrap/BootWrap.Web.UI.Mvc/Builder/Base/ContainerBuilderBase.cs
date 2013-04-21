@@ -14,6 +14,25 @@ namespace BootWrap.Web.UI.Mvc.Builder
             : base(tag, model)
         {}
 
+        //public TDerivered Html(Func<BootstrapFactory<TModel>,BuilderBase> html)
+        //{
+        //    BootstrapFactory<TModel> factory = new BootstrapFactory<TModel>(this.Model);
+        //    this.Html(html(factory).ToHtmlString());
+        //    return this as TDerivered;
+        //}
+
+        //public TDerivered Html(Func<TModel, object> html)
+        //{
+        //    this.Html(html(Model).ToString());
+        //    return this as TDerivered;
+        //}
+
+        //public TDerivered Html(string html)
+        //{
+        //    this.InnerHtml = html;
+        //    return this as TDerivered;
+        //}
+
         public TDerivered Html(Func<TModel, object> html)
         {
             this.Html(html(Model).ToString());
@@ -22,19 +41,14 @@ namespace BootWrap.Web.UI.Mvc.Builder
 
         public TDerivered Html(string html)
         {
-            this.InnerHtml = html;
-            return this as TDerivered;
-        }
-
-        public TDerivered HtmlAppend(Func<TModel, object> html)
-        {
-            this.HtmlAppend(html(Model).ToString());
-            return this as TDerivered;
-        }
-
-        public TDerivered HtmlAppend(string html)
-        {
             this.InnerHtml += html;
+            return this as TDerivered;
+        }
+
+        public TDerivered Child(Func<BootstrapFactory<TModel>, BuilderBase> html)
+        {
+            BootstrapFactory<TModel> factory = new BootstrapFactory<TModel>(this.Model);
+            this.Html(html(factory).ToHtmlString());
             return this as TDerivered;
         }
     }

@@ -15,8 +15,10 @@ namespace BootWrap.Web.UI.Mvc.Constants
         #region BOX
         public static readonly string ROW = "row";
         public static readonly string ROW_FLUID = "row-fluid";
+        public static readonly string CONTAINER = "container";
         public static readonly string SPAN = "span{0}";
         public static readonly string OFFSET = "offset{0}";
         #endregion
+
     }
 }

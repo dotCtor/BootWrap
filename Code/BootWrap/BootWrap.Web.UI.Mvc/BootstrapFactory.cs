@@ -31,5 +31,10 @@ namespace BootWrap.Web.UI.Mvc
         {
             return new SpanBuilder<TModel>(_model, spanLenght);
         }
+
+        public ContainerBuilder<TModel> Container()
+        {
+            return new ContainerBuilder<TModel>(_model);
+        }
     }
 }

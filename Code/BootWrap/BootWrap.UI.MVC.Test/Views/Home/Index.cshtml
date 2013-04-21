@@ -4,10 +4,16 @@
 }
 
 <h2>Index</h2>
-<div class="row">
-        @(Html.Bootstrap()
-            .Span()
-            .Html(@<text>
-                <strong>Span</strong>
-        </text>))
-</div>
+@(Html.Bootstrap().Container()
+        .Child(bootstrap => bootstrap.Row()
+            .Fluid()
+            .Class("well")
+            .Span(4, span => span.Html(@<text>Bu bir span</text>))
+            .Span(4, span => span.Html(@<text>Bu bir span</text>))
+            .Span(4, span => span.Child(bs => bs.Row()
+                .Fluid()
+                .Span(6,spanInner => spanInner.Child(bstrp => bstrp.TextBox()
+                    .Value(model => model.SubModel.Name)
+                    .Class("input-small")))
+                .Span(6,spanInner => spanInner.Html(@<text>@item.LastName</text>)))
+        )))
