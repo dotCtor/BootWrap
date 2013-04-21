@@ -1,14 +1,13 @@
-﻿@{
+﻿@model BootWrap.UI.MVC.Test.Models.MyModel
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<div class="container">
-    @(Html.Bootstrap()
-    .Row()
-    .Html(@<div class="span6">
-        @(Html.Bootstrap().TextBox())
-        <br />
-        Html Ulan
-    </div>))
+<div class="row">
+        @(Html.Bootstrap()
+            .Span()
+            .Html(@<text>
+                <strong>Span</strong>
+        </text>))
 </div>

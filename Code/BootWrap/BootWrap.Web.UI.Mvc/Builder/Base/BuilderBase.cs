@@ -6,7 +6,8 @@ using System.Web;
 
 namespace BootWrap.Web.UI.Mvc.Builder.Base
 {
-    public abstract class BuilderBase<TModel> : IHtmlString
+    public abstract class BuilderBase<TModel,TDrerivered> : IHtmlString
+        where TDrerivered : BuilderBase<TModel,TDrerivered>
     {
         /*
          * 0:tag
@@ -21,38 +22,48 @@ namespace BootWrap.Web.UI.Mvc.Builder.Base
          */
         private readonly string _elementFormat = @"<{0} id='{1}' name='{2}' class='{3}' style='{4}' {5} {6}>";
 
-        public string Id { get; set; }
-        public string Tag { get; set; }
-        public TModel Model { get; set; }
-        public string Name { get; private set; }
-        public string InnerHtml { get; protected set; }
-        public List<string> Classes { get; private set; }
-        public Dictionary<string, string> Styles { get; private set; }
-        public Dictionary<string, string> Attributes { get; private set; }
+        private string _id { get; set; }
+        private string _tag { get; set; }
+        private string _name { get; set; }
+        private List<string> _classes { get; set; }
+        private Dictionary<string, string> _styles { get; set; }
+        private Dictionary<string, string> _attributes { get; set; }
 
-        public BuilderBase()
+        protected TModel Model { get; private set; }
+        protected string InnerHtml { get; set; }
+
+
+        public BuilderBase(string tag , TModel model)
         {
-            this.Classes = new List<string>();
-            this.Styles = new Dictionary<string, string>();
-            this.Attributes = new Dictionary<string, string>();
+            this.Model = model;
+            this._tag = tag;
+            this._classes = new List<string>();
+            this._styles = new Dictionary<string, string>();
+            this._attributes = new Dictionary<string, string>();
         }
 
-        public BuilderBase(string name)
-            : this()
+        public TDrerivered Name(string name)
         {
-            this.Name = name;
+            this._name = name;
+            return this as TDrerivered;
         }
 
-        public BuilderBase<TModel> Class(string cls)
+        public TDrerivered Attribute(string key, string value)
         {
-            this.Classes.Add(cls);
-            return this;
+            this._attributes.Add(key,value);
+            return this as TDrerivered;
         }
 
-        public BuilderBase<TModel> Style(string key, string value)
+        public TDrerivered Class(string cls)
         {
-            this.Styles.Add(key,value);
-            return this;
+            this._classes.Add(cls);
+            return this as TDrerivered;
+        }
+
+        public TDrerivered Style(string key, string value)
+        {
+            this._styles.Add(key,value);
+            return this as TDrerivered;
         }
 
         protected string BuildElement()
@@ -62,12 +73,12 @@ namespace BootWrap.Web.UI.Mvc.Builder.Base
             string tagCloser = string.IsNullOrEmpty(InnerHtml) ? "/" : string.Format("> {0} </",InnerHtml);
 
             builder.AppendFormat(_elementFormat,
-                Tag,
-                Id,
-                Name,
-                string.Join(" ", this.Classes),
-                string.Join(";", this.Styles.Select(item => string.Format("{0}:{1}", item.Key, item.Value))),
-                string.Join(" ", this.Attributes.Select(attr => string.Format("{0}='{1}'", attr.Key,attr.Value))),
+                _tag,
+                _id,
+                _name,
+                string.Join(" ", this._classes),
+                string.Join(";", this._styles.Select(item => string.Format("{0}:{1}", item.Key, item.Value))),
+                string.Join(" ", this._attributes.Select(attr => string.Format("{0}='{1}'", attr.Key,attr.Value))),
                 tagCloser);
 
             return builder.ToString();

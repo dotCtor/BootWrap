@@ -9,9 +9,14 @@ namespace BootWrap.Web.UI.Mvc
 {
     public static class Wrapper
     {
-        public static WidgetFactory<TModel> Bootstrap<TModel>(this HtmlHelper<TModel> helper)
+        public static BootstrapFactory<TModel> Bootstrap<TModel>(this HtmlHelper<TModel> helper)
         {
-            return new WidgetFactory<TModel>(helper.ViewData.Model);
+            return new BootstrapFactory<TModel>(helper.ViewData.Model);
+        }
+
+        public static BootstrapFactory<T> Bootstrap<T>(this HtmlHelper helper, T model)
+        {
+            return new BootstrapFactory<T>(model);
         }
     }
 }
